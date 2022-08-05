@@ -5,19 +5,19 @@ import { client } from './index.js';
 var router = express.Router()
 
 router.get("/",async function(req,res){
-    let result =await client.db("movie").collection("mov").find({})
+    let result =await client.db("newmovies").collection("mov").find({})
     .toArray()
     res.send(result)
 })
 router.get("/:id",async function(req,res){
     var {id} = req.params
-    let result =await client.db("movie").collection("mov").find({id:id}).toArray()
+    let result =await client.db("newmovies").collection("mov").find({id:id}).toArray()
    res.send(result)
 })
 router.put("/:id",async function(req,res){
     var {id}=req.params
     var data = req.body
-    let result =await client.db("movie").collection("mov").updateOne({id:id},{$set:data})
+    let result =await client.db("newmovies").collection("mov").updateOne({id:id},{$set:data})
   
     res.send(result)
 })
@@ -30,7 +30,7 @@ async function passwordCreate (pass){
 router.post("/",async function(req,res){
     var {username,password} = req.body
     var pass = await passwordCreate(password)
-    let result =await client.db("movie").collection("users").insertOne({username,"password":pass})
+    let result =await client.db("newmovies").collection("users").insertOne({username,"password":pass})
     res.send(result)
    
 })

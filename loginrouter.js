@@ -25,14 +25,14 @@ login.post("/",async function(req,res){
         var transfer = nodemailer.createTransport({
             service:"hotmail",
             auth:{
-               user:"santhoshbalaji304@gmail.com",
-               pass:"santhosh1234"
+               user:"testaccount@gmail.com",
+               pass:"test12345"
             }
          
           
          })
            const options={
-            from:"santhoshbalaji304@gmail.com",
+            from:"testaccount@gmail.com",
             to:username,
             subject:"sending mail from the scratch",
             text:"hello this is santhosh am from the guvi network"
