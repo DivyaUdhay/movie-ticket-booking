@@ -37,7 +37,7 @@ app.use("/login",logins)
 // addMovie
 app.post("/admin/addMovie",async function(req,res){
     var data = req.body
-    let result =await client.db("movie").collection("mov").insertOne({data})
+    let result =await client.db("newmovies").collection("mov").insertOne({data})
     res.send(result)
    
 })
